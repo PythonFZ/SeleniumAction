@@ -9,8 +9,8 @@ import socketio
 import random
 import copy
 
-PORT = copy.deepcopy(int(random.randint(5000, 6000)))
-# PORT = 5322
+# PORT = copy.deepcopy(int(random.randint(5000, 6000)))
+PORT = 5322
 
 @pytest.fixture()
 def setup():
