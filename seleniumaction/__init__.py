@@ -23,32 +23,3 @@ def create_app() -> (Flask, SocketIO):
         return "test"
     
     return app, socketio
-
-
-
-
-# @dataclasses.dataclass
-# class MyServer:
-#     app: Flask = None
-#     socketio: SocketIO = None
-#     port: int = 5000
-
-#     _socketio_thread: threading.Thread = None
-
-#     def __post_init__(self) -> None:
-#         self.app = Flask(__name__)
-#         self.app.config["SECRET_KEY"] = "secret!"
-#         self.socketio = SocketIO(self.app)
-
-#         @self.app.route("/")
-#         def index():
-#             return render_template("index.html")
-
-#         self._socketio_thread = threading.Thread(
-#             target=self.socketio.run,
-#             args=(self.app,),
-#             kwargs={"debug": True, "port": self.port, "host": "0.0.0.0"},
-#         )
-#         self._socketio_thread.start()
-
-        
