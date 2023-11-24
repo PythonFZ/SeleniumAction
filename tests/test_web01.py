@@ -25,39 +25,18 @@ def setup(request):
 @pytest.fixture()
 def server():
 
-    # port = random.randint(10000, 20000)
-    global COUNTER
-    port = 1234 + COUNTER
-    COUNTER += 1
-
-    # app, socketio = create_app()
-    # app.config.update({
-    #     "TESTING": False,
-    # })
-    
+    port = random.randint(5000, 20000)
+   
     def run_server():
         app, socketio = create_app()
-        # app.config.update({
-        #     "TESTING": False,
-        # })
-        socketio.run(app, port=port)
-
-    # server_proc = mp.Process(
-    #     target=socketio.run,
-    #     args=(app,),
-    #     kwargs={
-    #         "debug": True,
-    #         "port": port,
-    #         "host": "0.0.0.0",
-    #     },
-    # )
+        socketio.run(app, port=port, debug=False) # NEVER EVER USE  DEBUG=TRUE HERE!!!
 
     server_proc = mp.Process(
         target=run_server,
     )
 
     server_proc.start()
-    time.sleep(5)
+    time.sleep(1)
     yield f"http://localhost:{port}"
     server_proc.terminate()
     server_proc.join()
