@@ -8,7 +8,6 @@ from selenium.webdriver.common.by import By
 import time
 import random
 import socketio
-import urllib.request
 
 COUNTER = 0
 
