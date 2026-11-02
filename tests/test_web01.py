@@ -1,14 +1,15 @@
-import pytest
-from seleniumaction import create_app
 import multiprocessing as mp
+import random
+import time
+
+import pytest
+import socketio
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-import time
-import random
-import socketio
-import urllib.request
+from webdriver_manager.chrome import ChromeDriverManager
+
+from seleniumaction import create_app
 
 COUNTER = 0
 
