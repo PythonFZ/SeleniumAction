@@ -1,8 +1,9 @@
-from flask import Flask, render_template
-from flask_socketio import SocketIO
 import dataclasses
 import threading
 import uuid
+
+from flask import Flask, render_template
+from flask_socketio import SocketIO
 
 
 def create_app() -> (Flask, SocketIO):
